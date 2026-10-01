@@ -1,0 +1,41 @@
+/* ---------- NAV ---------- */
+#nav{
+  position:sticky; top:0; z-index:200; backdrop-filter:blur(10px);
+  background:color-mix(in srgb, var(--cream) 88%, transparent);
+  border-bottom:1px solid var(--line-soft);
+}
+.nav-inner{display:flex; align-items:center; justify-content:space-between; height:76px; gap:20px;}
+.brand{display:flex; align-items:center; gap:10px; text-decoration:none; cursor:pointer; flex-shrink:0;}
+.brand img{height:44px; width:44px;}
+.brand-text{display:flex; flex-direction:column; line-height:1.05;}
+.brand-text b{font-family:var(--display); font-size:1.05rem; letter-spacing:.02em;}
+.brand-text span{font-family:var(--mono); font-size:.6rem; color:var(--ink-soft); letter-spacing:.03em;}
+.nav-links{display:flex; align-items:center; gap:2px; list-style:none; margin:0; padding:0; flex-wrap:nowrap;}
+.nav-links a{
+  font-size:.85rem; font-weight:500; padding:8px 12px; border-radius:8px; text-decoration:none;
+  color:var(--ink-soft); white-space:nowrap; transition:background .15s, color .15s;
+}
+.nav-links a:hover{background:var(--sand-2); color:var(--ink);}
+.nav-links a.active{color:var(--copper-deep); font-weight:600;}
+.nav-right{display:flex; align-items:center; gap:10px;}
+.theme-toggle{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:38px; height:38px; border-radius:999px; border:1.5px solid var(--line);
+  background:var(--sand-2); color:var(--ink); cursor:pointer; flex-shrink:0;
+}
+.theme-toggle:hover{border-color:var(--copper);}
+.theme-toggle svg{width:18px; height:18px;}
+.theme-toggle .ic-moon{display:none;}
+:root[data-theme="dark"] .theme-toggle .ic-sun{display:none;}
+:root[data-theme="dark"] .theme-toggle .ic-moon{display:block;}
+.burger{display:none; flex-direction:column; gap:4px; background:none; border:none; cursor:pointer; padding:8px;}
+.burger span{width:22px; height:2px; background:var(--ink); border-radius:2px;}
+#mobileMenu{display:none; position:fixed; inset:76px 0 0 0; background:var(--cream); z-index:199; overflow-y:auto; padding:8px 24px 40px;}
+#mobileMenu.open{display:block;}
+#mobileMenu a{display:block; padding:14px 4px; border-bottom:1px solid var(--line-soft); text-decoration:none; color:var(--ink); font-weight:500;}
+#mobileMenu a.active{color:var(--copper-deep);}
+@media (max-width: 980px){
+  .nav-links{display:none;}
+  .nav-right .btn-primary{display:none;}
+  .burger{display:flex;}
+}

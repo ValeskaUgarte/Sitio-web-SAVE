@@ -1,0 +1,23 @@
+/* forms */
+.form-card{background:var(--sand); border:1px solid var(--line); border-radius:20px; padding:36px;}
+@media (max-width:600px){ .form-card{padding:22px;} }
+.form-section-title{font-family:var(--mono); font-size:.72rem; text-transform:uppercase; letter-spacing:.05em; color:var(--copper-deep); margin:28px 0 14px; font-weight:700;}
+.form-section-title:first-child{margin-top:0;}
+.field{margin-bottom:16px;}
+.field label{display:block; font-size:.82rem; font-weight:600; margin-bottom:6px; color:var(--ink-soft);}
+.field input, .field select, .field textarea{
+  width:100%; padding:12px 14px; border-radius:10px; border:1.5px solid var(--line); background:var(--cream);
+  font-family:var(--body); font-size:.95rem; color:var(--ink); transition:border-color .15s;
+}
+.field input:focus, .field select:focus, .field textarea:focus{outline:none; border-color:var(--copper);}
+.field textarea{resize:vertical; min-height:90px;}
+.field.error input, .field.error select, .field.error textarea{border-color:var(--alert);}
+.field .err-msg{font-size:.75rem; color:var(--alert); margin-top:5px; display:none;}
+.field.error .err-msg{display:block;}
+.checkbox-row{display:flex; gap:10px; align-items:flex-start; margin:20px 0; font-size:.86rem; color:var(--ink-soft);}
+.checkbox-row input{margin-top:3px; flex-shrink:0;}
+.success-box{text-align:center; padding:50px 20px;}
+.success-box .id-chip{
+  font-family:var(--mono); font-size:1.1rem; background:var(--sand-2); border:1px dashed var(--copper); border-radius:10px;
+  padding:12px 22px; display:inline-block; margin:18px 0; color:var(--copper-deep); font-weight:700;
+}

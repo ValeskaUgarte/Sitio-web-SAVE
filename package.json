@@ -1,0 +1,29 @@
+{
+  "name": "save-backend",
+  "version": "1.0.0",
+  "description": "Backend y panel de administración del sistema SAVE (Sistema de Alerta Vital Por Entornos)",
+  "type": "commonjs",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node server/index.js",
+    "seed:paraderos": "node server/scripts/seed-paraderos.js",
+    "seed:demo": "node server/scripts/seed-demo.js",
+    "remove:demo-nodos": "node server/scripts/remove-demo-nodos.js",
+    "migrate:lanzamientos-convenios": "node server/scripts/migrate-lanzamientos-convenios.js",
+    "create:admin": "node server/scripts/create-admin.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "better-sqlite3": "^11.3.0",
+    "cookie-session": "^2.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.4.0",
+    "multer": "^2.0.1"
+  },
+  "devDependencies": {
+    "jsdom": "^30.1.0"
+  }
+}

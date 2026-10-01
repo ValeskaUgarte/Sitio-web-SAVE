@@ -1,0 +1,88 @@
+/* ---------- Generic patterns ---------- */
+.section-head{max-width:640px; margin-bottom:44px;}
+.section-head.center{margin-left:auto; margin-right:auto; text-align:center;}
+.grid{display:grid; gap:20px;}
+.grid-2{grid-template-columns:repeat(2,1fr);}
+.grid-3{grid-template-columns:repeat(3,1fr);}
+.grid-4{grid-template-columns:repeat(4,1fr);}
+@media (max-width:920px){ .grid-4{grid-template-columns:repeat(2,1fr);} .grid-3{grid-template-columns:repeat(2,1fr);} }
+@media (max-width:640px){ .grid-2,.grid-3,.grid-4{grid-template-columns:1fr;} }
+
+.card{
+  position:relative; background:none; border:none; border-radius:0; box-shadow:none; padding:22px 0 0;
+}
+.card::before{
+  content:""; display:block; width:52px; height:3px; border-radius:2px; margin-bottom:16px;
+  background:linear-gradient(90deg, var(--copper), var(--copper-2));
+  box-shadow:0 3px 8px -1px rgba(140,58,32,.5);
+}
+.card h3{font-size:1.1rem;}
+.card-icon{
+  width:44px; height:44px; border-radius:50%; color:#fff; flex-shrink:0; margin-bottom:14px;
+  display:flex; align-items:center; justify-content:center;
+  background:radial-gradient(circle at 32% 28%, var(--copper-2), var(--copper) 58%, var(--copper-deep));
+  box-shadow:0 6px 16px -5px rgba(140,58,32,.55), inset 0 1px 1px rgba(255,255,255,.35);
+}
+.card-icon svg{width:20px; height:20px;}
+.icon{width:20px; height:20px; flex-shrink:0; vertical-align:-4px;}
+.filter-chip .icon{width:15px; height:15px; vertical-align:-2px; margin-right:2px;}
+.btn .icon{width:16px; height:16px; vertical-align:-3px;}
+.faq-q .icon{width:16px; height:16px;}
+.social-row .icon{width:16px; height:16px;}
+h3 .icon, .card-icon .icon{width:22px; height:22px;}
+.card.secondary{opacity:.65;}
+.card.secondary::before{background:var(--line); box-shadow:none;}
+/* En grillas de varias columnas, además de la línea de arriba, separa cada
+   tarjeta de la siguiente con un hairline vertical (no relleno, no caja). */
+.grid-2 > .card:not(.card-boxed):not(:first-child), .grid-3 > .card:not(.card-boxed):not(:first-child), .grid-4 > .card:not(.card-boxed):not(:first-child){border-left:1px solid var(--line); padding-left:22px; margin-left:-1px;}
+@media (max-width:640px){ .grid-2 > .card, .grid-3 > .card, .grid-4 > .card{border-left:none; padding-left:0; margin-left:0;} }
+
+/* ---- Tarjeta con caja (Noticias, Empresas/afiliaciones, Quiénes somos):
+   aquí el orden importa y una caja se justifica, pero con un fondo en
+   sombra dorada/cobre, no un color plano. ---- */
+.card.card-boxed{
+  background:var(--cream);
+  border:1px solid color-mix(in srgb, var(--copper) 28%, var(--line));
+  border-radius:16px; padding:24px 22px;
+  box-shadow:0 1px 2px rgba(140,58,32,.06), 0 26px 50px -28px rgba(140,58,32,.5), 0 0 38px -18px rgba(232,128,74,.35);
+}
+.card.card-boxed::before{
+  display:block; position:static; width:auto; height:2px; margin-bottom:16px;
+  background:linear-gradient(90deg, transparent, var(--copper) 25%, var(--copper-2) 50%, var(--copper) 75%, transparent);
+  box-shadow:none; opacity:.75;
+}
+.tag{
+  font-family:var(--mono); font-size:.65rem; letter-spacing:.03em; text-transform:uppercase;
+  padding:4px 9px; border-radius:6px; background:var(--copper-light); color:var(--copper-deep); font-weight:600;
+  display:inline-block;
+}
+.tag.alt{background:var(--sand-2); color:var(--ink-soft);}
+.divider{height:1px; background:var(--line); margin:0;}
+
+/* stat */
+.stat-row{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden;}
+@media (max-width:760px){ .stat-row{grid-template-columns:repeat(2,1fr);} }
+.stat{background:var(--cream); padding:26px 20px;}
+.stat b{font-family:var(--mono); font-size:2.1rem; color:var(--copper-deep); display:block; letter-spacing:-.02em;}
+.stat span{font-size:.82rem; color:var(--ink-soft);}
+.stat .src{display:block; margin-top:8px; font-family:var(--mono); font-size:.65rem; color:var(--ink-soft); opacity:.75;}
+
+/* footer */
+#siteFooter{background:var(--sand); border-top:1px solid var(--line); padding:56px 0 28px; margin-top:40px;}
+.footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:32px;}
+@media (max-width:760px){ .footer-grid{grid-template-columns:1fr 1fr;} }
+@media (max-width:480px){ .footer-grid{grid-template-columns:1fr;} }
+.footer-grid h4{font-size:.78rem; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-soft); font-family:var(--mono); font-weight:600; margin-bottom:14px;}
+.footer-grid a{display:block; padding:5px 0; text-decoration:none; color:var(--ink); font-size:.9rem; opacity:.85;}
+.footer-grid a:hover{color:var(--copper-deep); opacity:1;}
+.foot-bottom{display:flex; justify-content:space-between; align-items:center; margin-top:44px; padding-top:24px; border-top:1px solid var(--line); flex-wrap:wrap; gap:12px;}
+.foot-bottom span{font-size:.8rem; color:var(--ink-soft);}
+.social-row{display:flex; gap:10px;}
+.social-row a{width:36px; height:36px; border-radius:50%; background:var(--sand-2); display:flex; align-items:center; justify-content:center; text-decoration:none; color:var(--ink);}
+.social-row a:hover{background:var(--copper); color:#fff;}
+.social-row svg{width:16px; height:16px;}
+
+/* video del pitch (inicio) */
+.pitch-video-section{padding:8px 0 48px;}
+.pitch-video-frame{position:relative; width:100%; max-width:860px; margin:0 auto; aspect-ratio:16/9; border-radius:var(--radius); overflow:hidden; border:1px solid var(--line); background:#000; box-shadow:0 10px 30px rgba(35,26,19,.12);}
+.pitch-video-frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}

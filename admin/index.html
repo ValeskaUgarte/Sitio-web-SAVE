@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panel de administración — SAVE</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+<div id="loginScreen">
+  <div class="login-card">
+    <h1>Panel de administración</h1>
+    <p>SAVE — Sistema de Alerta Vital Por Entornos</p>
+    <img src="/img/logo-save-transparent.png" alt="SAVE" class="login-logo">
+    <form id="loginForm">
+      <div class="field"><label>Correo</label><input type="email" name="email" required autocomplete="username"></div>
+      <div class="field"><label>Contraseña</label><input type="password" name="password" required autocomplete="current-password"></div>
+      <button type="submit" class="btn btn-primary" style="width:100%;">Ingresar</button>
+      <div class="login-error" id="loginError"></div>
+    </form>
+  </div>
+</div>
+
+<div id="adminShell" style="display:none;">
+  <aside id="sidebar">
+    <div class="sidebar-brand">SAVE <span>PANEL DE ADMINISTRACIÓN</span></div>
+    <nav class="sidebar-nav" id="sidebarNav">
+      <a href="#/resumen" data-route="resumen">Resumen</a>
+      <a href="#/solicitudes" data-route="solicitudes">Solicitudes <span class="count" id="countSolicitudes" style="display:none;"></span></a>
+      <a href="#/cotizaciones" data-route="cotizaciones">Cotizaciones <span class="count" id="countCotizaciones" style="display:none;"></span></a>
+      <a href="#/contactos" data-route="contactos">Mensajes de contacto <span class="count" id="countContactos" style="display:none;"></span></a>
+      <a href="#/nodos" data-route="nodos">Nodos SAVE</a>
+      <a href="#/paraderos" data-route="paraderos">Paraderos y estaciones</a>
+      <a href="#/empresas" data-route="empresas">Empresas afiliadas</a>
+      <a href="#/noticias" data-route="noticias">Noticias</a>
+      <a href="#/lanzamientos" data-route="lanzamientos">Lanzamientos</a>
+      <a href="#/producto" data-route="producto">Producto (home)</a>
+      <a href="#/equipo" data-route="equipo">Equipo</a>
+      <a href="#/casos" data-route="casos">Casos documentados</a>
+      <a href="#/newsletter" data-route="newsletter">Newsletter</a>
+      <a href="#/administradores" data-route="administradores">Administradores</a>
+    </nav>
+    <div class="sidebar-foot">
+      <div id="adminUserLabel" style="margin-bottom:8px;"></div>
+      <a href="/" target="_blank" class="btn btn-outline btn-sm" style="width:100%; margin-bottom:8px;">Ver sitio</a>
+      <button id="logoutBtn" class="btn btn-ghost btn-sm" style="width:100%;">Cerrar sesión</button>
+    </div>
+  </aside>
+  <main id="mainArea"></main>
+</div>
+
+<script src="js/admin-api.js"></script>
+<script src="js/admin-core.js"></script>
+<script src="js/admin-pages.js"></script>
+<script src="js/admin-pages-2.js"></script>
+<script src="js/admin-app.js"></script>
+</body>
+</html>
